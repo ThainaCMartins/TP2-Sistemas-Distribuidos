@@ -33,7 +33,7 @@ Escolha pastas de saída novas para preservar as evidências existentes.
 
 ## Testes funcionais
 
-1. **Malha completa:** A, B, C e D conhecem os outros três peers. B/C/D baixam o arquivo e podem redistribuir blocos antes de terminar. Após o download, seis sondas TCP GET/BLOCK, com SHA-256, verificam comunicação efetiva em A–B, A–C, A–D, B–C, B–D e C–D. **Essas sondas são adicionais e não provam que todos os pares foram usados espontaneamente durante o download.**
+1. **Malha completa:** A, B, C e D conhecem os outros três peers. B/C/D baixam o arquivo e podem redistribuir blocos antes de terminar. Após o download, seis sondas TCP GET/BLOCK, com SHA-256, verificam comunicação efetiva em A–B, A–C, A–D, B–C, B–D e C–D. 
 2. **Troca bidirecional:** dois peers iniciam com metades complementares, enviam e recebem até completar.
 3. **Interrupção e retomada:** recuperação de blocos válidos e correção de bloco adulterado.
 
