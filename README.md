@@ -1,6 +1,7 @@
 # TP2 — Transferência de Arquivos Peer-to-Peer (P2P)
 
 **Disciplina:** Sistemas Distribuídos — CEFET-MG, 2026/2.
+**Alunas:** Thainá Martins e Giovanna Laura
 
 ## Objetivo
 
