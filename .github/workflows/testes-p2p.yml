@@ -1,0 +1,33 @@
+name: Testes P2P (Linux)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Testes unitarios
+        run: python -m unittest discover -v
+      - name: Testes funcionais
+        run: python validar_funcional.py --out validacao_github
+      - name: Matriz de experimentos
+        run: python executar_testes.py --out resultados_github
+      - name: Guardar evidencias
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-execucao-p2p
+          path: |
+            validacao_github/
+            resultados_github/
+          if-no-files-found: ignore
