@@ -1,7 +1,7 @@
 name: Testes P2P (Linux)
 on:
   push:
-    branches: [main]
+    branches: [main, revisao-teste-malha-completa]
   workflow_dispatch:
 jobs:
   testes:
