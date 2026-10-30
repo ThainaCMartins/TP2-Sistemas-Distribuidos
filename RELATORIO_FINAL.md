@@ -14,7 +14,7 @@ O protocolo usa mensagens `HELLO`, `HELLO_ACK`, `BITFIELD`, `GET`, `BLOCK` e `ER
 
 ## 2. Validação funcional
 
-**Teste 1 — Malha completa A/B/C/D.** Cada um dos quatro peers possui três vizinhos. A começa com o arquivo completo; B, C e D recebem e podem compartilhar blocos antes de completar. São verificadas as cópias e a ocorrência de retransmissões entre receptores. Após a conclusão, seis sondas independentes realizam pedidos TCP `GET` e recebem `BLOCK`, com validação SHA-256, para comprovar transferência efetiva em A–B, A–C, A–D, B–C, B–D e C–D. **Essas sondas não demonstram que os seis pares participaram espontaneamente do download principal.**
+**Teste 1 — Malha completa A/B/C/D.** Cada um dos quatro peers possui três vizinhos. A começa com o arquivo completo; B, C e D recebem e podem compartilhar blocos antes de completar. São verificadas as cópias e a ocorrência de retransmissões entre receptores. Após a conclusão, seis sondas independentes realizam pedidos TCP `GET` e recebem `BLOCK`, com validação SHA-256, para comprovar transferência efetiva em A–B, A–C, A–D, B–C, B–D e C–D. 
 
 **Teste 2 — Troca bidirecional.** Dois peers iniciam com subconjuntos complementares de blocos, sem um seeder completo, e ambos enviam e recebem até remontar o arquivo.
 
