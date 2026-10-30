@@ -19,11 +19,8 @@ flow = []
 lines = source.splitlines()
 i = 0
 def rich(value):
-    value = escape(value)
-    value = re.sub(r"\\*\\*(.+?)\\*\\*", r"<b>\\1</b>", value)
-    value = re.sub(r"`([^`]+)`", r"<font name='Courier'>\\1</font>", value)
-    value = re.sub(r"\\[([^]]+)\\]\\((https?://[^)]+)\\)", r"\\1 (\\2)", value)
-    return value
+    return escape(value).replace('**', '').replace('`', '')
+
 while i < len(lines):
     line = lines[i].strip()
     if not line:
