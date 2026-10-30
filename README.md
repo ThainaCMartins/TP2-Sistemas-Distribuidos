@@ -21,6 +21,14 @@ O pacote de entrega inclui a implementação Python (diretório `p2p/`), os test
 
 Os arquivos de código, testes, evidências e gráficos estão publicados diretamente na raiz deste repositório. A documentação original do pacote está preservada em `docs/README_ORIGINAL.md`.
 
+## Relatório final
+
+O **relatório final de entrega** é o PDF publicado na raiz do repositório:
+
+- [Relatório TP2 — Transferência de Arquivos Peer-to-Peer (PDF)](https://github.com/ThainaCMartins/TP2-Sistemas-Distribuidos/blob/main/Relatorio-TP2%20-%20Transfer%C3%AAncia%20de%20Arquivos%20Peer-to-Peer.pdf)
+
+**Autoras:** Thainá Martins e Giovana Laura. Este PDF é a versão definitiva para consulta e entrega; não é necessário gerar um novo relatório com scripts antigos.
+
 ## Executar
 
 Requer Python 3.12. No terminal, na raiz do projeto:
