@@ -22,26 +22,10 @@ jobs:
         if: failure()
         shell: bash
         run: |
-          echo '=== Resumo dos arquivos de validacao ==='
-          find validacao_github -maxdepth 3 -type f 2>/dev/null | sort || true
           echo '=== Consoles dos peers ==='
           find validacao_github -name '*_console.txt' -type f -print -exec tail -n 60 {} \; 2>/dev/null || true
-          echo '=== Eventos BLOCK_RECEIVED por origem e destino ==='
-          python - <<'PY'
-          import collections, json, pathlib
-          folder = pathlib.Path('validacao_github/malha_completa')
-          counts = collections.Counter()
-          for peer in 'BCD':
-              path = folder / f'{peer}.jsonl'
-              if not path.exists(): continue
-              for line in path.read_text(encoding='utf-8').splitlines():
-                  try: e=json.loads(line)
-                  except ValueError: continue
-                  if e.get('event') == 'BLOCK_RECEIVED':
-                      counts['-'.join(sorted((e.get('remote','?'), peer)))] += 1
-          for pair in ('A-B','A-C','A-D','B-C','B-D','C-D'):
-              print(f'{pair}: {counts[pair]} blocos')
-          PY
+          echo '=== Transferencias por par ==='
+          python -c "import json,pathlib,collections; d=pathlib.Path('validacao_github/malha_completa'); c=collections.Counter(); [(c.update(['-'.join(sorted((e.get('remote','?'),p)))]) if e.get('event')=='BLOCK_RECEIVED' else None) for p in 'BCD' for path in [d / (p+'.jsonl')] if path.exists() for line in path.read_text(encoding='utf-8').splitlines() for e in [json.loads(line)]]; [print(pair, c[pair]) for pair in ('A-B','A-C','A-D','B-C','B-D','C-D')]"
       - name: Matriz de experimentos
         run: python executar_testes.py --out resultados_github
       - name: Guardar evidencias
