@@ -1,7 +1,7 @@
 # TP2 — Transferência de Arquivos Peer-to-Peer (P2P)
 
 **Disciplina:** Sistemas Distribuídos — CEFET-MG, 2026/2.
-**Alunas:** Thainá Martins e Giovanna Laura
+**Alunas:** Thainá Martins e Giovana Laura
 
 ## Objetivo
 
@@ -46,3 +46,7 @@ O workflow em `.github/workflows/testes-p2p.yml` foi configurado para executar o
 ## Relatório de entrega
 
 
+
+## Observação sobre os nomes
+
+A grafia correta das alunas é **Thainá Martins** (com `h` e acento no `á`) e **Giovana Laura** (com apenas um `n`). Usar esses nomes no relatório, na apresentação e nos materiais de entrega.
