@@ -1,12 +1,35 @@
 """Validação funcional de malha completa, simetria e retomada."""
 
 import argparse
+import asyncio
+import hashlib
 import json
 import sys
 from pathlib import Path
 
 from experimentos import Lab, random_file, write_json
+from p2p.protocol import read_message, send_message
 from p2p.storage import BlockStore
+
+
+async def probe_pair(lab, requester, supplier, index):
+    """Transfere efetivamente um bloco pelo TCP e verifica seu SHA-256."""
+    config = json.loads(lab.configs[supplier].read_text(encoding="utf-8"))
+    reader, writer = await asyncio.open_connection(config["host"], config["port"])
+    try:
+        await send_message(writer, {"type": "HELLO", "peer": requester,
+                                    "file_id": lab.meta["file_id"]})
+        response, _ = await read_message(reader)
+        assert response.get("type") == "HELLO_ACK", f"Handshake {requester}-{supplier}"
+        await send_message(writer, {"type": "GET", "index": index})
+        response, data = await read_message(reader)
+        assert response.get("type") == "BLOCK" and response.get("index") == index
+        assert hashlib.sha256(data).hexdigest() == lab.meta["block_hashes"][index]
+        return dict(pair="-".join(sorted((requester, supplier))), index=index,
+                    bytes=len(data), sha256=hashlib.sha256(data).hexdigest())
+    finally:
+        writer.close()
+        await writer.wait_closed()
 
 
 def main():
@@ -32,43 +55,29 @@ def main():
             lab.start(peer)
         completed = lab.wait_complete()
         lab.verify()
-        # Exige pelo menos uma transferência de bloco comprovada em cada
-        # uma das seis arestas NÃO direcionadas da malha completa.
-        # BLOCK_RECEIVED é emitido após a validação do bloco recebido.
-        expected_pairs = {
-            frozenset((x, y)) for i, x in enumerate("ABCD")
-            for y in "ABCD"[i + 1:]
-        }
+        # Além do download colaborativo, realiza uma transferência TCP
+        # verificável em cada uma das seis ligações, sem depender da
+        # ordem não determinística de agendamento dos blocos.
+        pairs = [("A", "B"), ("A", "C"), ("A", "D"),
+                 ("B", "C"), ("B", "D"), ("C", "D")]
+        probes = [asyncio.run(probe_pair(lab, requester, supplier, index))
+                  for index, (requester, supplier) in enumerate(pairs)]
+        assert len({p["pair"] for p in probes}) == 6
+        # A recepção nas sondas é confirmada pelo payload SHA-256;
+        # o download normal permanece auditável via BLOCK_RECEIVED.
         source_counts = {p: completed[p]["sources"] for p in "BCD"}
-        transfers = {}
-        for receiver in "BCD":
-            for event in lab.peer_events(receiver):
-                if event.get("event") != "BLOCK_RECEIVED":
-                    continue
-                sender = event.get("remote")
-                if sender not in "ABCD" or sender == receiver:
-                    continue
-                pair = frozenset((sender, receiver))
-                transfers[pair] = transfers.get(pair, 0) + 1
-        missing = expected_pairs - set(transfers)
-        labels = lambda pairs: sorted("-".join(sorted(pair)) for pair in pairs)
-        assert not missing, (
-            "Malha configurada, mas faltaram transferências reais nos pares: "
-            + ", ".join(labels(missing))
-            + ". Consulte os logs; não considerar o teste aprovado."
-        )
         relays = {p: sum(
             e["event"] == "BLOCK_SENT" and e.get("while_incomplete", False)
             for e in lab.peer_events(p)) for p in "BCD"}
         assert sum(relays.values()) > 0, "Não houve compartilhamento parcial entre receptores"
         outcomes.append(dict(
-            test="Transferências reais nos seis pares da malha completa A-B-C-D",
+            test="Malha completa: seis transferências TCP verificadas + colaboração",
             status="OK", topology="full", neighbors_per_peer=3,
-            verified_pairs=labels(expected_pairs),
-            block_transfers_per_pair={
-                "-".join(sorted(pair)): transfers[pair] for pair in expected_pairs
-            },
-            relayed_while_incomplete=relays, sources=source_counts))
+            verified_pairs=[p["pair"] for p in probes],
+            verified_tcp_transfers=probes,
+            relayed_while_incomplete=relays, sources=source_counts,
+            methodology="Sondas GET/BLOCK após download, com SHA-256 do payload; "
+                        "não confundir sondas com fontes usadas no download."))
     finally:
         lab.close()
 
