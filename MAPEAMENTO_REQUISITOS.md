@@ -20,7 +20,7 @@ Fonte: `SD_TP2_2_2026.pdf`, páginas 1 e 2, professora Michelle Hanne, CEFET-MG,
 | Arquivos de 10/20 KB, 1/5 MB e 10/20 MB | `SIZES` em `executar_testes.py`, base de 1024 explicitada | As seis dimensões cruzadas com 2/4 peers e 1024/4096 bytes |
 | Mensagens e progresso registrados | Logs JSONL por peer, incluindo pedidos, dados e conclusão | `A.jsonl`, `B.jsonl`, `C.jsonl`, `D.jsonl` de cada cenário |
 | Integridade, tamanho e fontes esperadas | `Lab.verify`, `summarize_lab` e validação em cadeia | SHA-256, tamanho exato, `source_counts` e origens nos logs |
-| Relatório com até cinco páginas e URL do código | `relatorio/TP2_Relatorio.docx` e PDF com 5 páginas | Nome preenchido; URL real deve ser inserida antes da entrega |
+| Relatório com até cinco páginas e URL do código | [PDF final publicado](https://github.com/ThainaCMartins/TP2-Sistemas-Distribuidos/blob/main/Relatorio-TP2%20-%20Transfer%C3%AAncia%20de%20Arquivos%20Peer-to-Peer.pdf) na raiz do repositório | Relatório de entrega definitivo; conferir a paginação e o conteúdo diretamente no PDF publicado |
 
 O tracker é opcional e foi dispensado. A obtenção do metadado não foi atribuída a um tracker: o JSON é compartilhado previamente com os peers. Não existe exigência explícita de slides, vídeo ou testes em máquinas físicas diferentes no PDF fornecido.
 
