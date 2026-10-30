@@ -1,4 +1,4 @@
-"""Demonstrações reais de encaminhamento parcial, simetria e retomada."""
+"""Validação funcional de malha completa, simetria e retomada."""
 
 import argparse
 import json
@@ -32,21 +32,43 @@ def main():
             lab.start(peer)
         completed = lab.wait_complete()
         lab.verify()
-        # A topologia permite todas as conexões; os logs comprovam
-        # quais transferências efetivamente ocorreram.
+        # Exige pelo menos uma transferência de bloco comprovada em cada
+        # uma das seis arestas NÃO direcionadas da malha completa.
+        # BLOCK_RECEIVED é emitido após a validação do bloco recebido.
+        expected_pairs = {
+            frozenset((x, y)) for i, x in enumerate("ABCD")
+            for y in "ABCD"[i + 1:]
+        }
         source_counts = {p: completed[p]["sources"] for p in "BCD"}
+        transfers = {}
+        for receiver in "BCD":
+            for event in lab.peer_events(receiver):
+                if event.get("event") != "BLOCK_RECEIVED":
+                    continue
+                sender = event.get("remote")
+                if sender not in "ABCD" or sender == receiver:
+                    continue
+                pair = frozenset((sender, receiver))
+                transfers[pair] = transfers.get(pair, 0) + 1
+        missing = expected_pairs - set(transfers)
+        labels = lambda pairs: sorted("-".join(sorted(pair)) for pair in pairs)
+        assert not missing, (
+            "Malha configurada, mas faltaram transferências reais nos pares: "
+            + ", ".join(labels(missing))
+            + ". Consulte os logs; não considerar o teste aprovado."
+        )
         relays = {p: sum(
             e["event"] == "BLOCK_SENT" and e.get("while_incomplete", False)
             for e in lab.peer_events(p)) for p in "BCD"}
         assert sum(relays.values()) > 0, "Não houve compartilhamento parcial entre receptores"
-        assert any(source_counts[p].get(q, 0) > 0
-                   for p in "BCD" for q in "BCD" if p != q), (
-                       "Nenhum receptor recebeu blocos de outro receptor")
         outcomes.append(dict(
-            test="Compartilhamento parcial em malha completa A-B-C-D",
+            test="Transferências reais nos seis pares da malha completa A-B-C-D",
             status="OK", topology="full", neighbors_per_peer=3,
-            evidence=relays, sources=source_counts,
-            note="A configuração permite todos os pares; as fontes registradas mostram as trocas reais."))
+            verified_pairs=labels(expected_pairs),
+            block_transfers_per_pair={
+                "-".join(sorted(pair)): transfers[pair] for pair in expected_pairs
+            },
+            relayed_while_incomplete=relays, sources=source_counts))
     finally:
         lab.close()
 
