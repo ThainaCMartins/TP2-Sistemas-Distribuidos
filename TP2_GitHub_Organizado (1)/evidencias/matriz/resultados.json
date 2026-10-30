@@ -1,0 +1,632 @@
+[
+  {
+    "case": "A_10KiB_b1024_p2_r1",
+    "file_label": "A_10KiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 10240,
+    "block_bytes": 1024,
+    "block_count": 10,
+    "leechers_verified": 1,
+    "max_download_seconds": 0.023231,
+    "wall_seconds": 0.102408,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 10
+      }
+    },
+    "sha256": "35015787933b8c85f8ef04f4f350c67ef9a0dcfff7a6bb1f1a45d211d62b2622",
+    "status": "OK"
+  },
+  {
+    "case": "A_10KiB_b1024_p4_r1",
+    "file_label": "A_10KiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 10240,
+    "block_bytes": 1024,
+    "block_count": 10,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.022642,
+    "wall_seconds": 0.103588,
+    "relayed_blocks": 6,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 4,
+        "C": 3,
+        "D": 3
+      },
+      "C": {
+        "A": 10
+      },
+      "D": {
+        "A": 10
+      }
+    },
+    "sha256": "35015787933b8c85f8ef04f4f350c67ef9a0dcfff7a6bb1f1a45d211d62b2622",
+    "status": "OK"
+  },
+  {
+    "case": "A_10KiB_b4096_p2_r1",
+    "file_label": "A_10KiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 10240,
+    "block_bytes": 4096,
+    "block_count": 3,
+    "leechers_verified": 1,
+    "max_download_seconds": 0.165056,
+    "wall_seconds": 0.260751,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 3
+      }
+    },
+    "sha256": "35015787933b8c85f8ef04f4f350c67ef9a0dcfff7a6bb1f1a45d211d62b2622",
+    "status": "OK"
+  },
+  {
+    "case": "A_10KiB_b4096_p4_r1",
+    "file_label": "A_10KiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 10240,
+    "block_bytes": 4096,
+    "block_count": 3,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.064331,
+    "wall_seconds": 0.153533,
+    "relayed_blocks": 6,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 3
+      },
+      "C": {
+        "B": 3
+      },
+      "D": {
+        "B": 3
+      }
+    },
+    "sha256": "35015787933b8c85f8ef04f4f350c67ef9a0dcfff7a6bb1f1a45d211d62b2622",
+    "status": "OK"
+  },
+  {
+    "case": "A_20KiB_b1024_p2_r1",
+    "file_label": "A_20KiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 20480,
+    "block_bytes": 1024,
+    "block_count": 20,
+    "leechers_verified": 1,
+    "max_download_seconds": 0.164005,
+    "wall_seconds": 0.305562,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 20
+      }
+    },
+    "sha256": "e4f7efffc9d45b4ecb506480eadd1c4a57885a079e136b82ed97fa83ac3590b6",
+    "status": "OK"
+  },
+  {
+    "case": "A_20KiB_b1024_p4_r1",
+    "file_label": "A_20KiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 20480,
+    "block_bytes": 1024,
+    "block_count": 20,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.164756,
+    "wall_seconds": 0.229546,
+    "relayed_blocks": 23,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 20
+      },
+      "C": {
+        "A": 10,
+        "B": 10
+      },
+      "D": {
+        "A": 7,
+        "B": 7,
+        "C": 6
+      }
+    },
+    "sha256": "e4f7efffc9d45b4ecb506480eadd1c4a57885a079e136b82ed97fa83ac3590b6",
+    "status": "OK"
+  },
+  {
+    "case": "A_20KiB_b4096_p2_r1",
+    "file_label": "A_20KiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 20480,
+    "block_bytes": 4096,
+    "block_count": 5,
+    "leechers_verified": 1,
+    "max_download_seconds": 0.025083,
+    "wall_seconds": 0.102139,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 5
+      }
+    },
+    "sha256": "e4f7efffc9d45b4ecb506480eadd1c4a57885a079e136b82ed97fa83ac3590b6",
+    "status": "OK"
+  },
+  {
+    "case": "A_20KiB_b4096_p4_r1",
+    "file_label": "A_20KiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 20480,
+    "block_bytes": 4096,
+    "block_count": 5,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.026452,
+    "wall_seconds": 0.108861,
+    "relayed_blocks": 1,
+    "relayed_while_incomplete": 1,
+    "source_counts": {
+      "B": {
+        "A": 4,
+        "D": 1
+      },
+      "C": {
+        "A": 5
+      },
+      "D": {
+        "A": 5
+      }
+    },
+    "sha256": "e4f7efffc9d45b4ecb506480eadd1c4a57885a079e136b82ed97fa83ac3590b6",
+    "status": "OK"
+  },
+  {
+    "case": "B_1MiB_b1024_p2_r1",
+    "file_label": "B_1MiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 1048576,
+    "block_bytes": 1024,
+    "block_count": 1024,
+    "leechers_verified": 1,
+    "max_download_seconds": 0.226909,
+    "wall_seconds": 0.307885,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 1024
+      }
+    },
+    "sha256": "b014f572e106c2bfd547688724bb233df95d6033982fd1199da2dd626043b9b2",
+    "status": "OK"
+  },
+  {
+    "case": "B_1MiB_b1024_p4_r1",
+    "file_label": "B_1MiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 1048576,
+    "block_bytes": 1024,
+    "block_count": 1024,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.186094,
+    "wall_seconds": 0.288603,
+    "relayed_blocks": 1464,
+    "relayed_while_incomplete": 1460,
+    "source_counts": {
+      "B": {
+        "A": 534,
+        "C": 247,
+        "D": 243
+      },
+      "C": {
+        "A": 533,
+        "B": 246,
+        "D": 245
+      },
+      "D": {
+        "A": 541,
+        "B": 240,
+        "C": 243
+      }
+    },
+    "sha256": "b014f572e106c2bfd547688724bb233df95d6033982fd1199da2dd626043b9b2",
+    "status": "OK"
+  },
+  {
+    "case": "B_1MiB_b4096_p2_r1",
+    "file_label": "B_1MiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 1048576,
+    "block_bytes": 4096,
+    "block_count": 256,
+    "leechers_verified": 1,
+    "max_download_seconds": 0.20669,
+    "wall_seconds": 0.282626,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 256
+      }
+    },
+    "sha256": "b014f572e106c2bfd547688724bb233df95d6033982fd1199da2dd626043b9b2",
+    "status": "OK"
+  },
+  {
+    "case": "B_1MiB_b4096_p4_r1",
+    "file_label": "B_1MiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 1048576,
+    "block_bytes": 4096,
+    "block_count": 256,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.211824,
+    "wall_seconds": 0.31151,
+    "relayed_blocks": 425,
+    "relayed_while_incomplete": 409,
+    "source_counts": {
+      "B": {
+        "A": 119,
+        "C": 57,
+        "D": 80
+      },
+      "C": {
+        "A": 100,
+        "D": 81,
+        "B": 75
+      },
+      "D": {
+        "A": 124,
+        "C": 57,
+        "B": 75
+      }
+    },
+    "sha256": "b014f572e106c2bfd547688724bb233df95d6033982fd1199da2dd626043b9b2",
+    "status": "OK"
+  },
+  {
+    "case": "B_5MiB_b1024_p2_r1",
+    "file_label": "B_5MiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 5242880,
+    "block_bytes": 1024,
+    "block_count": 5120,
+    "leechers_verified": 1,
+    "max_download_seconds": 1.11109,
+    "wall_seconds": 1.228051,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 5120
+      }
+    },
+    "sha256": "f1a8917cb8cd6507e73540239e209d820dc0e82aa3228c80e8ec62b10298fd23",
+    "status": "OK"
+  },
+  {
+    "case": "B_5MiB_b1024_p4_r1",
+    "file_label": "B_5MiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 5242880,
+    "block_bytes": 1024,
+    "block_count": 5120,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.934268,
+    "wall_seconds": 1.069067,
+    "relayed_blocks": 8866,
+    "relayed_while_incomplete": 8840,
+    "source_counts": {
+      "B": {
+        "A": 2169,
+        "C": 1489,
+        "D": 1462
+      },
+      "C": {
+        "A": 2126,
+        "B": 1495,
+        "D": 1499
+      },
+      "D": {
+        "A": 2199,
+        "B": 1459,
+        "C": 1462
+      }
+    },
+    "sha256": "f1a8917cb8cd6507e73540239e209d820dc0e82aa3228c80e8ec62b10298fd23",
+    "status": "OK"
+  },
+  {
+    "case": "B_5MiB_b4096_p2_r1",
+    "file_label": "B_5MiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 5242880,
+    "block_bytes": 4096,
+    "block_count": 1280,
+    "leechers_verified": 1,
+    "max_download_seconds": 0.412177,
+    "wall_seconds": 0.515154,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 1280
+      }
+    },
+    "sha256": "f1a8917cb8cd6507e73540239e209d820dc0e82aa3228c80e8ec62b10298fd23",
+    "status": "OK"
+  },
+  {
+    "case": "B_5MiB_b4096_p4_r1",
+    "file_label": "B_5MiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 5242880,
+    "block_bytes": 4096,
+    "block_count": 1280,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.272271,
+    "wall_seconds": 0.374906,
+    "relayed_blocks": 1830,
+    "relayed_while_incomplete": 1687,
+    "source_counts": {
+      "B": {
+        "A": 596,
+        "C": 332,
+        "D": 352
+      },
+      "C": {
+        "A": 793,
+        "D": 243,
+        "B": 244
+      },
+      "D": {
+        "A": 621,
+        "C": 325,
+        "B": 334
+      }
+    },
+    "sha256": "f1a8917cb8cd6507e73540239e209d820dc0e82aa3228c80e8ec62b10298fd23",
+    "status": "OK"
+  },
+  {
+    "case": "C_10MiB_b1024_p2_r1",
+    "file_label": "C_10MiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 10485760,
+    "block_bytes": 1024,
+    "block_count": 10240,
+    "leechers_verified": 1,
+    "max_download_seconds": 2.266528,
+    "wall_seconds": 2.42496,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 10240
+      }
+    },
+    "sha256": "112a35a75ab292164d6f4a97433b32bd07591cc401de677fbd198cb13feda6ec",
+    "status": "OK"
+  },
+  {
+    "case": "C_10MiB_b1024_p4_r1",
+    "file_label": "C_10MiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 10485760,
+    "block_bytes": 1024,
+    "block_count": 10240,
+    "leechers_verified": 3,
+    "max_download_seconds": 1.978361,
+    "wall_seconds": 2.15794,
+    "relayed_blocks": 17255,
+    "relayed_while_incomplete": 17106,
+    "source_counts": {
+      "B": {
+        "A": 4498,
+        "C": 3077,
+        "D": 2665
+      },
+      "C": {
+        "A": 4385,
+        "D": 2776,
+        "B": 3079
+      },
+      "D": {
+        "A": 4582,
+        "C": 2880,
+        "B": 2778
+      }
+    },
+    "sha256": "112a35a75ab292164d6f4a97433b32bd07591cc401de677fbd198cb13feda6ec",
+    "status": "OK"
+  },
+  {
+    "case": "C_10MiB_b4096_p2_r1",
+    "file_label": "C_10MiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 10485760,
+    "block_bytes": 4096,
+    "block_count": 2560,
+    "leechers_verified": 1,
+    "max_download_seconds": 0.501709,
+    "wall_seconds": 0.622697,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 2560
+      }
+    },
+    "sha256": "112a35a75ab292164d6f4a97433b32bd07591cc401de677fbd198cb13feda6ec",
+    "status": "OK"
+  },
+  {
+    "case": "C_10MiB_b4096_p4_r1",
+    "file_label": "C_10MiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 10485760,
+    "block_bytes": 4096,
+    "block_count": 2560,
+    "leechers_verified": 3,
+    "max_download_seconds": 0.610327,
+    "wall_seconds": 0.738211,
+    "relayed_blocks": 4416,
+    "relayed_while_incomplete": 4342,
+    "source_counts": {
+      "B": {
+        "A": 1099,
+        "D": 850,
+        "C": 611
+      },
+      "C": {
+        "A": 1029,
+        "B": 747,
+        "D": 784
+      },
+      "D": {
+        "A": 1136,
+        "C": 730,
+        "B": 694
+      }
+    },
+    "sha256": "112a35a75ab292164d6f4a97433b32bd07591cc401de677fbd198cb13feda6ec",
+    "status": "OK"
+  },
+  {
+    "case": "C_20MiB_b1024_p2_r1",
+    "file_label": "C_20MiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 20971520,
+    "block_bytes": 1024,
+    "block_count": 20480,
+    "leechers_verified": 1,
+    "max_download_seconds": 5.705788,
+    "wall_seconds": 5.934747,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 20480
+      }
+    },
+    "sha256": "3ea4937caca2022d640ad283d87001099288e3d7234ddbebada857f68b7ef806",
+    "status": "OK"
+  },
+  {
+    "case": "C_20MiB_b1024_p4_r1",
+    "file_label": "C_20MiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 20971520,
+    "block_bytes": 1024,
+    "block_count": 20480,
+    "leechers_verified": 3,
+    "max_download_seconds": 4.79223,
+    "wall_seconds": 5.064158,
+    "relayed_blocks": 32558,
+    "relayed_while_incomplete": 31961,
+    "source_counts": {
+      "B": {
+        "A": 9778,
+        "D": 5283,
+        "C": 5419
+      },
+      "C": {
+        "A": 9286,
+        "B": 5831,
+        "D": 5363
+      },
+      "D": {
+        "A": 9818,
+        "C": 5230,
+        "B": 5432
+      }
+    },
+    "sha256": "3ea4937caca2022d640ad283d87001099288e3d7234ddbebada857f68b7ef806",
+    "status": "OK"
+  },
+  {
+    "case": "C_20MiB_b4096_p2_r1",
+    "file_label": "C_20MiB",
+    "repetition": 1,
+    "peers": 2,
+    "file_bytes": 20971520,
+    "block_bytes": 4096,
+    "block_count": 5120,
+    "leechers_verified": 1,
+    "max_download_seconds": 1.109287,
+    "wall_seconds": 1.243421,
+    "relayed_blocks": 0,
+    "relayed_while_incomplete": 0,
+    "source_counts": {
+      "B": {
+        "A": 5120
+      }
+    },
+    "sha256": "3ea4937caca2022d640ad283d87001099288e3d7234ddbebada857f68b7ef806",
+    "status": "OK"
+  },
+  {
+    "case": "C_20MiB_b4096_p4_r1",
+    "file_label": "C_20MiB",
+    "repetition": 1,
+    "peers": 4,
+    "file_bytes": 20971520,
+    "block_bytes": 4096,
+    "block_count": 5120,
+    "leechers_verified": 3,
+    "max_download_seconds": 1.006564,
+    "wall_seconds": 1.206315,
+    "relayed_blocks": 8714,
+    "relayed_while_incomplete": 8614,
+    "source_counts": {
+      "B": {
+        "A": 2241,
+        "D": 1469,
+        "C": 1410
+      },
+      "C": {
+        "A": 2252,
+        "D": 1380,
+        "B": 1488
+      },
+      "D": {
+        "A": 2153,
+        "B": 1574,
+        "C": 1393
+      }
+    },
+    "sha256": "3ea4937caca2022d640ad283d87001099288e3d7234ddbebada857f68b7ef806",
+    "status": "OK"
+  }
+]

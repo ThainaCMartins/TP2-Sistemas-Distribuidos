@@ -1,0 +1,25 @@
+[1/24] A_10KiB_b1024_p2_r1: OK; tempo=0.023s; repasses=0
+[2/24] A_10KiB_b1024_p4_r1: OK; tempo=0.023s; repasses=6
+[3/24] A_10KiB_b4096_p2_r1: OK; tempo=0.165s; repasses=0
+[4/24] A_10KiB_b4096_p4_r1: OK; tempo=0.064s; repasses=6
+[5/24] A_20KiB_b1024_p2_r1: OK; tempo=0.164s; repasses=0
+[6/24] A_20KiB_b1024_p4_r1: OK; tempo=0.165s; repasses=23
+[7/24] A_20KiB_b4096_p2_r1: OK; tempo=0.025s; repasses=0
+[8/24] A_20KiB_b4096_p4_r1: OK; tempo=0.026s; repasses=1
+[9/24] B_1MiB_b1024_p2_r1: OK; tempo=0.227s; repasses=0
+[10/24] B_1MiB_b1024_p4_r1: OK; tempo=0.186s; repasses=1464
+[11/24] B_1MiB_b4096_p2_r1: OK; tempo=0.207s; repasses=0
+[12/24] B_1MiB_b4096_p4_r1: OK; tempo=0.212s; repasses=425
+[13/24] B_5MiB_b1024_p2_r1: OK; tempo=1.111s; repasses=0
+[14/24] B_5MiB_b1024_p4_r1: OK; tempo=0.934s; repasses=8866
+[15/24] B_5MiB_b4096_p2_r1: OK; tempo=0.412s; repasses=0
+[16/24] B_5MiB_b4096_p4_r1: OK; tempo=0.272s; repasses=1830
+[17/24] C_10MiB_b1024_p2_r1: OK; tempo=2.267s; repasses=0
+[18/24] C_10MiB_b1024_p4_r1: OK; tempo=1.978s; repasses=17255
+[19/24] C_10MiB_b4096_p2_r1: OK; tempo=0.502s; repasses=0
+[20/24] C_10MiB_b4096_p4_r1: OK; tempo=0.610s; repasses=4416
+[21/24] C_20MiB_b1024_p2_r1: OK; tempo=5.706s; repasses=0
+[22/24] C_20MiB_b1024_p4_r1: OK; tempo=4.792s; repasses=32558
+[23/24] C_20MiB_b4096_p2_r1: OK; tempo=1.109s; repasses=0
+[24/24] C_20MiB_b4096_p4_r1: OK; tempo=1.007s; repasses=8714
+Concluído: 24/24 cenários. Evidências em /tmp/tp2_matriz_verificada_20261027

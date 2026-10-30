@@ -1,0 +1,44 @@
+[
+  {
+    "test": "Compartilhamento parcial em cadeia A-B-C-D",
+    "status": "OK",
+    "evidence": {
+      "B": 1012,
+      "C": 1012
+    },
+    "sources": {
+      "B": {
+        "A": 1025
+      },
+      "C": {
+        "B": 1025
+      },
+      "D": {
+        "C": 1025
+      }
+    }
+  },
+  {
+    "test": "Troca bidirecional sem seeder completo",
+    "status": "OK",
+    "evidence": {
+      "A": {
+        "received": 512,
+        "sent_before_complete": 407
+      },
+      "B": {
+        "received": 513,
+        "sent_before_complete": 512
+      }
+    }
+  },
+  {
+    "test": "Retomada após interrupção e bloco local corrompido",
+    "status": "OK",
+    "before_stop": 31,
+    "reused": 30,
+    "corrupted_index": 87,
+    "downloads_of_corrupted_index": 2,
+    "sha256": "f94b02fdab4c318820205096a9af9e387e136bb5268c015f55ca997f02ff7dbb"
+  }
+]
