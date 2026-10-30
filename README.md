@@ -43,10 +43,3 @@ Para arquivos maiores, a configuração de 4096 bytes apresentou tempos menores 
 
 O workflow em `.github/workflows/testes-p2p.yml` foi configurado para executar os testes e guardar evidências em uma máquina Linux. O código está publicado na raiz. Consulte a aba *Actions* para ver a situação real das execuções e baixar os artefatos de evidência.
 
-## Relatório de entrega
-
-
-
-## Observação sobre os nomes
-
-A grafia correta das alunas é **Thainá Martins** (com `h` e acento no `á`) e **Giovana Laura** (com apenas um `n`). Usar esses nomes no relatório, na apresentação e nos materiais de entrega.
