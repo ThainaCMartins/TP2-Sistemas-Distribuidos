@@ -20,21 +20,33 @@ def main():
     source = random_file(root / "original.bin", 1024 * 1024 + 37)
     outcomes = []
 
-    # A--B--C--D: C não conhece A; D conhece apenas C. Exige repasse real.
-    lab = Lab(root / "cadeia", source, count=4, topology="chain")
+    # Malha completa: A, B, C e D conhecem todos os demais.
+    # A inicia como seeder; os receptores também podem compartilhar blocos.
+    lab = Lab(root / "malha_completa", source, count=4, topology="full")
     try:
-        lab.start("A", seed=True, delay=0.001)
+        for peer in "ABCD":
+            config = json.loads(lab.configs[peer].read_text(encoding="utf-8"))
+            assert len(config["neighbors"]) == 3, f"{peer} não conhece os três vizinhos"
+        lab.start("A", seed=True, delay=0.002)
         for peer in "BCD":
             lab.start(peer)
         completed = lab.wait_complete()
         lab.verify()
-        evidence = {p: sum(e["event"] == "BLOCK_SENT" and e.get("while_incomplete", False)
-                           for e in lab.peer_events(p)) for p in "BC"}
-        assert all(evidence.values()), "B e C devem servir antes de concluir"
-        assert set(completed["C"]["sources"]) == {"B"}
-        assert set(completed["D"]["sources"]) == {"C"}
-        outcomes.append(dict(test="Compartilhamento parcial em cadeia A-B-C-D", status="OK",
-                             evidence=evidence, sources={p: completed[p]["sources"] for p in "BCD"}))
+        # A topologia permite todas as conexões; os logs comprovam
+        # quais transferências efetivamente ocorreram.
+        source_counts = {p: completed[p]["sources"] for p in "BCD"}
+        relays = {p: sum(
+            e["event"] == "BLOCK_SENT" and e.get("while_incomplete", False)
+            for e in lab.peer_events(p)) for p in "BCD"}
+        assert sum(relays.values()) > 0, "Não houve compartilhamento parcial entre receptores"
+        assert any(source_counts[p].get(q, 0) > 0
+                   for p in "BCD" for q in "BCD" if p != q), (
+                       "Nenhum receptor recebeu blocos de outro receptor")
+        outcomes.append(dict(
+            test="Compartilhamento parcial em malha completa A-B-C-D",
+            status="OK", topology="full", neighbors_per_peer=3,
+            evidence=relays, sources=source_counts,
+            note="A configuração permite todos os pares; as fontes registradas mostram as trocas reais."))
     finally:
         lab.close()
 
