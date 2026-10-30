@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+# Generated test outputs
+validacao_github/
+resultados_github/
+validacao_local/
+resultados_local/
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
