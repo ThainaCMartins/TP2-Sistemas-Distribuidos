@@ -23,11 +23,11 @@ Os arquivos de código, testes, evidências e gráficos estão publicados direta
 
 ## Relatório final
 
-O **relatório final de entrega** é o PDF publicado na raiz do repositório:
+O **relatório histórico anterior à reestruturação** é o PDF publicado na raiz do repositório:
 
 - [Relatório TP2 — Transferência de Arquivos Peer-to-Peer (PDF)](https://github.com/ThainaCMartins/TP2-Sistemas-Distribuidos/blob/main/Relatorio-TP2%20-%20Transfer%C3%AAncia%20de%20Arquivos%20Peer-to-Peer.pdf)
 
-**Autoras:** Thainá Martins e Giovana Laura. Este PDF é a versão definitiva para consulta e entrega; não é necessário gerar um novo relatório com scripts antigos.
+**Autoras:** Thainá Martins e Giovana Laura. Este PDF documenta a versão anterior e **não deve ser apresentado como relatório final da nova implementação** até a nova bateria de testes ser concluída.
 
 ## Executar
 
@@ -43,9 +43,9 @@ A execução experimental original ocorreu em Linux, usando conexões TCP locais
 
 ## Revisão do teste funcional 1 (a validar)
 
-Na branch `revisao-teste-malha-completa`, o primeiro teste funcional foi alterado para quatro peers em **malha completa**, em substituição à cadeia A–B–C–D. Cada peer conhece os outros três; A inicia com o arquivo completo e B, C e D podem baixar e redistribuir blocos. O teste verifica a integridade das três cópias, a configuração de vizinhos e pelo menos um bloco efetivamente recebido em cada um dos seis pares A-B, A-C, A-D, B-C, B-D e C-D, além de retransmissões entre receptores.
+Na branch `revisao-teste-malha-completa`, o primeiro teste funcional foi alterado para quatro peers em **malha completa**, em substituição à cadeia A–B–C–D. Cada peer conhece os outros três; A inicia com o arquivo completo e B, C e D podem baixar e redistribuir blocos. O teste verifica a integridade das três cópias, a configuração de vizinhos e seis transferências TCP GET/BLOCK, uma por par A-B, A-C, A-D, B-C, B-D e C-D, cada uma verificada por SHA-256, além de retransmissões durante o download.
 
-**Importante:** o teste agora exige transferência efetiva em cada um dos seis pares. Se a distribuição dinâmica não utilizar algum par, o teste falha explicitamente e informa quais pares faltaram; a implementação ainda não força o agendamento de blocos por todos os pares. As fontes efetivas ficam documentadas nos logs e, quando aprovado, no `validacao.json`. A nova execução ainda precisa ser validada; não reutilizar números do teste antigo.
+**Importante:** a malha é validada em duas etapas distintas: (1) download simultâneo de B, C e D com evidência de colaboração entre receptores; (2) sondas TCP GET/BLOCK após a conclusão, garantindo uma transferência real de bloco em cada um dos seis pares. As sondas NÃO são contabilizadas como blocos úteis do download e não demonstram que os seis pares foram usados espontaneamente durante a distribuição. A execução nova deve ser validada no GitHub Actions.
 
 Execute em um diretório novo:
 
