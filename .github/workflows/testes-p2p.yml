@@ -8,7 +8,10 @@ on:
 jobs:
   testes:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: 'TP2_GitHub_Organizado (1)'
     steps:
       - name: Baixar codigo
         uses: actions/checkout@v4
@@ -28,6 +31,6 @@ jobs:
         with:
           name: evidencias-execucao-p2p
           path: |
-            validacao_github/
-            resultados_github/
+            TP2_GitHub_Organizado (1)/validacao_github/
+            TP2_GitHub_Organizado (1)/resultados_github/
           if-no-files-found: ignore
