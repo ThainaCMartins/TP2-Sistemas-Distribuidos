@@ -45,4 +45,4 @@ O workflow em `.github/workflows/testes-p2p.yml` foi configurado para executar o
 
 ## Relatório de entrega
 
-O enunciado, conforme descrito em `MAPEAMENTO_REQUISITOS.md`, solicita um relatório de até cinco páginas, com decisões de projeto, avaliação dos testes e URL do código-fonte. **O PDF e o DOCX do relatório não estão neste repositório**; devem ser revisados e incluídos na submissão acadêmica, conforme orientação da professora. A URL correta é https://github.com/ThainaCMartins/TP2-Sistemas-Distribuidos.
+
