@@ -41,6 +41,20 @@ python executar_testes.py --out resultados_local
 
 A execução experimental original ocorreu em Linux, usando conexões TCP locais. Os tempos obtidos em outros ambientes podem variar.
 
+## Revisão do teste funcional 1 (a validar)
+
+Na branch `revisao-teste-malha-completa`, o primeiro teste funcional foi alterado para quatro peers em **malha completa**, em substituição à cadeia A–B–C–D. Cada peer conhece os outros três; A inicia com o arquivo completo e B, C e D podem baixar e redistribuir blocos. O teste verifica a integridade das três cópias, a configuração de vizinhos e a ocorrência de retransmissões entre receptores.
+
+**Importante:** configuração em malha completa não implica que cada uma das seis ligações transporte blocos. As fontes efetivas ficam documentadas nos logs e no `validacao.json`. A nova execução ainda precisa ser validada; não reutilizar os números do teste antigo como se fossem da malha.
+
+Execute em um diretório novo:
+
+```bash
+python -m unittest discover -v
+python validar_funcional.py --out validacao_malha_nova
+python executar_testes.py --out resultados_malha_novos
+```
+
 ## Experimentos e resultados originais
 
 A matriz experimental contém **24 cenários**, combinando seis tamanhos de arquivo, dois tamanhos de bloco (1024 e 4096 bytes) e dois totais de peers (2 e 4). As cópias foram verificadas por tamanho e SHA-256. Foram realizados ainda testes funcionais de encaminhamento entre peers, transferência bidirecional e retomada após interrupção.
