@@ -19,7 +19,7 @@ Implementar e avaliar uma aplicação de transferência de arquivos entre peers 
 
 O pacote de entrega inclui a implementação Python (diretório `p2p/`), os testes automatizados (`tests/`), os scripts `validar_funcional.py` e `executar_testes.py`, as evidências (`evidencias/`) e os gráficos (`graficos/`).
 
-**Atenção:** um arquivo ZIP não disponibiliza seu conteúdo como código navegável no GitHub. É necessário extrair o pacote e publicar os arquivos e pastas separadamente. Confirme que `p2p/`, `tests/` e os scripts estão presentes antes de executar o workflow.
+Os arquivos de código, testes, evidências e gráficos estão publicados diretamente na raiz deste repositório. A documentação original do pacote está preservada em `docs/README_ORIGINAL.md`.
 
 ## Executar
 
@@ -41,4 +41,8 @@ Para arquivos maiores, a configuração de 4096 bytes apresentou tempos menores 
 
 ## GitHub Actions
 
-O workflow em `.github/workflows/testes-p2p.yml` foi configurado para executar os testes e guardar evidências em uma máquina Linux. Ele **só poderá executar corretamente quando o código e os scripts estiverem publicados**. Consulte a aba *Actions* para ver a situação real das execuções.
+O workflow em `.github/workflows/testes-p2p.yml` foi configurado para executar os testes e guardar evidências em uma máquina Linux. O código está publicado na raiz. Consulte a aba *Actions* para ver a situação real das execuções e baixar os artefatos de evidência.
+
+## Relatório de entrega
+
+O enunciado, conforme descrito em `MAPEAMENTO_REQUISITOS.md`, solicita um relatório de até cinco páginas, com decisões de projeto, avaliação dos testes e URL do código-fonte. **O PDF e o DOCX do relatório não estão neste repositório**; devem ser revisados e incluídos na submissão acadêmica, conforme orientação da professora. A URL correta é https://github.com/ThainaCMartins/TP2-Sistemas-Distribuidos.
