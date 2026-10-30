@@ -9,20 +9,44 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Baixar codigo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Preparar Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - name: Testes unitarios
         run: python -m unittest discover -v
-      - name: Testes funcionais
-        run: python validar_funcional.py --out validacao_github
+      - name: Testes funcionais (malha de seis pares)
+        run: python -u validar_funcional.py --out validacao_github
+      - name: Diagnostico dos testes funcionais
+        if: failure()
+        shell: bash
+        run: |
+          echo '=== Resumo dos arquivos de validacao ==='
+          find validacao_github -maxdepth 3 -type f 2>/dev/null | sort || true
+          echo '=== Consoles dos peers ==='
+          find validacao_github -name '*_console.txt' -type f -print -exec tail -n 60 {} \; 2>/dev/null || true
+          echo '=== Eventos BLOCK_RECEIVED por origem e destino ==='
+          python - <<'PY'
+          import collections, json, pathlib
+          folder = pathlib.Path('validacao_github/malha_completa')
+          counts = collections.Counter()
+          for peer in 'BCD':
+              path = folder / f'{peer}.jsonl'
+              if not path.exists(): continue
+              for line in path.read_text(encoding='utf-8').splitlines():
+                  try: e=json.loads(line)
+                  except ValueError: continue
+                  if e.get('event') == 'BLOCK_RECEIVED':
+                      counts['-'.join(sorted((e.get('remote','?'), peer)))] += 1
+          for pair in ('A-B','A-C','A-D','B-C','B-D','C-D'):
+              print(f'{pair}: {counts[pair]} blocos')
+          PY
       - name: Matriz de experimentos
         run: python executar_testes.py --out resultados_github
       - name: Guardar evidencias
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: evidencias-execucao-p2p
           path: |
