@@ -43,9 +43,9 @@ A execução experimental original ocorreu em Linux, usando conexões TCP locais
 
 ## Revisão do teste funcional 1 (a validar)
 
-Na branch `revisao-teste-malha-completa`, o primeiro teste funcional foi alterado para quatro peers em **malha completa**, em substituição à cadeia A–B–C–D. Cada peer conhece os outros três; A inicia com o arquivo completo e B, C e D podem baixar e redistribuir blocos. O teste verifica a integridade das três cópias, a configuração de vizinhos e a ocorrência de retransmissões entre receptores.
+Na branch `revisao-teste-malha-completa`, o primeiro teste funcional foi alterado para quatro peers em **malha completa**, em substituição à cadeia A–B–C–D. Cada peer conhece os outros três; A inicia com o arquivo completo e B, C e D podem baixar e redistribuir blocos. O teste verifica a integridade das três cópias, a configuração de vizinhos e pelo menos um bloco efetivamente recebido em cada um dos seis pares A-B, A-C, A-D, B-C, B-D e C-D, além de retransmissões entre receptores.
 
-**Importante:** configuração em malha completa não implica que cada uma das seis ligações transporte blocos. As fontes efetivas ficam documentadas nos logs e no `validacao.json`. A nova execução ainda precisa ser validada; não reutilizar os números do teste antigo como se fossem da malha.
+**Importante:** o teste agora exige transferência efetiva em cada um dos seis pares. Se a distribuição dinâmica não utilizar algum par, o teste falha explicitamente e informa quais pares faltaram; a implementação ainda não força o agendamento de blocos por todos os pares. As fontes efetivas ficam documentadas nos logs e, quando aprovado, no `validacao.json`. A nova execução ainda precisa ser validada; não reutilizar números do teste antigo.
 
 Execute em um diretório novo:
 
