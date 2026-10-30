@@ -107,7 +107,7 @@ class Lab:
             write_json(self.configs[peer_id], config)
         self.started = time.perf_counter()
 
-    def start(self, peer_id, seed=False, delay=0, timeout=180):
+    def start(self, peer_id, seed=False, delay=0, timeout=600):
         command = [sys.executable, "-m", "p2p", "peer", "--config", str(self.configs[peer_id]),
                    "--meta", str(self.meta_path), "--dir", str(self.directory / peer_id),
                    "--log", str(self.directory / f"{peer_id}.jsonl"), "--timeout", str(timeout),
@@ -121,7 +121,7 @@ class Lab:
     def peer_events(self, peer_id):
         return events(self.directory / f"{peer_id}.jsonl")
 
-    def wait_for(self, condition, timeout=180):
+    def wait_for(self, condition, timeout=600):
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
             if condition():
@@ -133,7 +133,7 @@ class Lab:
             time.sleep(0.025)
         raise TimeoutError(f"Tempo esgotado em {self.directory}")
 
-    def wait_complete(self, peer_ids=None, timeout=180):
+    def wait_complete(self, peer_ids=None, timeout=600):
         selected = peer_ids or self.ids
         self.wait_for(lambda: all((self.directory / p / "completion.json").exists() for p in selected), timeout)
         return {p: json.loads((self.directory / p / "completion.json").read_text(encoding="utf-8"))
